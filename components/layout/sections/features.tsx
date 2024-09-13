@@ -10,40 +10,40 @@ interface FeaturesProps {
 
 const featureList: FeaturesProps[] = [
   {
-    icon: "TabletSmartphone",
-    title: "Mobile Friendly",
+    title: "Criação de Sites",
+    icon: "Monitor",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.",
+      "Desenvolvemos sites responsivos e otimizados para garantir a melhor experiência para seus usuários.",
   },
   {
-    icon: "BadgeCheck",
-    title: "Social Proof",
+    title: "Aplicações Web",
+    icon: "Code",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.",
+      "Criamos aplicações web personalizadas para atender às necessidades específicas do seu negócio.",
   },
   {
-    icon: "Goal",
-    title: "Targeted Content",
+    title: "Consultoria em TI",
+    icon: "Briefcase",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.",
+      "Oferecemos consultoria especializada em tecnologia da informação para ajudar a impulsionar o seu negócio.",
   },
   {
-    icon: "PictureInPicture",
-    title: "Strong Visuals",
+    title: "Hospedagem em Sites",
+    icon: "Cloud",
     description:
-      "Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.",
+      "Hospedamos seu site ou aplicação em servidores de alta performance e segurança na nuvem.",
   },
   {
-    icon: "MousePointerClick",
-    title: "Clear CTA",
+    title: "Emails Profissionais",
+    icon: "Mail",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.",
+      "Crie emails profissionais personalizados para sua empresa e melhore a comunicação com seus clientes.",
   },
   {
-    icon: "Newspaper",
-    title: "Clear Headline",
+    title: "Otimização de SEO",
+    icon: "Search",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.",
+      "Aumente a visibilidade do seu site nos mecanismos de busca com nossos serviços de otimização de SEO.",
   },
 ];
 
@@ -51,17 +51,15 @@ export const FeaturesSection = () => {
   return (
     <section id="features" className="container py-24 sm:py-32">
       <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
-        Features
+        Serviços
       </h2>
 
       <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        What Makes Us Different
+        Conheça nossos serviços
       </h2>
 
       <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
-        fugiat, odit similique quasi sint reiciendis quidem iure veritatis optio
-        facere tenetur.
+        Saiba mais sobre os serviços que oferecemos e como podemos ajudar a impulsionar o seu negócio.
       </h3>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

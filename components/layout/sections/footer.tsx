@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { ChevronsDownIcon } from "lucide-react";
+import { ChevronsDownIcon, InstagramIcon } from "lucide-react";
 import Link from "next/link";
 
 export const FooterSection = () => {
@@ -16,22 +16,20 @@ export const FooterSection = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-lg">Contact</h3>
+            <h3 className="font-bold text-lg">Contatos</h3>
             <div>
               <Link href="#" className="opacity-60 hover:opacity-100">
-                Github
+                E-mail
               </Link>
             </div>
-
-            <div>
-              <Link href="#" className="opacity-60 hover:opacity-100">
-                Twitter
-              </Link>
-            </div>
-
             <div>
               <Link href="#" className="opacity-60 hover:opacity-100">
                 Instagram
+              </Link>
+            </div>
+            <div>
+              <Link href="#" className="opacity-60 hover:opacity-100">
+                Whatsapp
               </Link>
             </div>
           </div>
@@ -101,16 +99,11 @@ export const FooterSection = () => {
         </div>
 
         <Separator className="my-6" />
+
         <section className="">
           <h3 className="">
-            &copy; 2024 Designed and developed by
-            <Link
-              target="_blank"
-              href="https://github.com/leoMirandaa"
-              className="text-primary transition-all border-primary hover:border-b-2 ml-1"
-            >
-              Leo Miranda
-            </Link>
+            &copy; {new Date().getFullYear()} Illumine Tecnologia. Todos os
+            direitos reservados.
           </h3>
         </section>
       </div>

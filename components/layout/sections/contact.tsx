@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Building2, Clock, Mail, Phone } from "lucide-react";
+import { Building2, Clock, Mail, Phone, SendIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -28,11 +28,19 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
+const messageSubjects: string[] = [
+  "Criação de Site",
+  "Desenvolvimento de Sistema",
+  "Consultoria em TI",
+  "Hospedagem E-mail/Sites",
+  "Outros",
+];
+
 const formSchema = z.object({
-  firstName: z.string().min(2).max(255),
-  lastName: z.string().min(2).max(255),
+  name: z.string().min(2).max(255),
+  whatsapp: z.string().min(11).max(15),
   email: z.string().email(),
-  subject: z.string().min(2).max(255),
+  subject: z.string().refine((value) => messageSubjects.includes(value)),
   message: z.string(),
 });
 
@@ -40,19 +48,19 @@ export const ContactSection = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      name: "",
+      whatsapp: "",
       email: "",
-      subject: "Web Development",
+      subject: "Criação de Site",
       message: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const { firstName, lastName, email, subject, message } = values;
+    const { name, whatsapp, email, subject, message } = values;
     console.log(values);
 
-    const mailToLink = `mailto:leomirandadev@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`;
+    const mailToLink = `mailto:ola@illumine.dev?subject=${subject}&body=Olá eu sou ${name}, meu e-mail é ${email}. %0D%0A${message}`;
 
     window.location.href = mailToLink;
   }
@@ -63,54 +71,34 @@ export const ContactSection = () => {
         <div>
           <div className="mb-4">
             <h2 className="text-lg text-primary mb-2 tracking-wider">
-              Contact
+              Contato
             </h2>
 
-            <h2 className="text-3xl md:text-4xl font-bold">Connect With Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Vamos conversar?</h2>
           </div>
           <p className="mb-8 text-muted-foreground lg:w-5/6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-            ipsam sint enim exercitationem ex autem corrupti quas tenetur
+            Quer tirar suas ideias do papel e transformá-las em projetos de
+            sucesso? Entre em contato conosco para saber mais sobre como podemos
+            ajudar a impulsionar o seu negócio.
           </p>
 
-          <div className="flex flex-col gap-4">
-            <div>
-              <div className="flex gap-2 mb-1">
-                <Building2 />
-                <div className="font-bold">Find us</div>
-              </div>
-
-              <div>742 Evergreen Terrace, Springfield, IL 62704</div>
-            </div>
-
+          <div className="flex flex-col gap-8">
             <div>
               <div className="flex gap-2 mb-1">
                 <Phone />
-                <div className="font-bold">Call us</div>
+                <div className="font-bold">Whatsapp</div>
               </div>
 
-              <div>+1 (619) 123-4567</div>
+              <div>(85) 9.8623-1111</div>
             </div>
 
             <div>
               <div className="flex gap-2 mb-1">
                 <Mail />
-                <div className="font-bold">Mail US</div>
+                <div className="font-bold">E-mail</div>
               </div>
 
-              <div>leomirandadev@gmail.com</div>
-            </div>
-
-            <div>
-              <div className="flex gap-2">
-                <Clock />
-                <div className="font-bold">Visit us</div>
-              </div>
-
-              <div>
-                <div>Monday - Friday</div>
-                <div>8AM - 4PM</div>
-              </div>
+              <div>ola@illumine.dev</div>
             </div>
           </div>
         </div>
@@ -123,28 +111,18 @@ export const ContactSection = () => {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="grid w-full gap-4"
               >
-                <div className="flex flex-col md:!flex-row gap-8">
+                <div className="flex flex-col gap-1.5">
                   <FormField
                     control={form.control}
-                    name="firstName"
+                    name="name"
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel>Como devo te chamar?</FormLabel>
                         <FormControl>
-                          <Input placeholder="Leopoldo" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="lastName"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Last Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Miranda" {...field} />
+                          <Input
+                            placeholder="Digite o seu nome aqui"
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -152,17 +130,34 @@ export const ContactSection = () => {
                   />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col md:!flex-row gap-8">
+                  <FormField
+                    control={form.control}
+                    name="whatsapp"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel>Whatsapp</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="text"
+                            placeholder="(85) 9.9999-9999"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="w-full">
                         <FormLabel>Email</FormLabel>
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder="leomirandadev@gmail.com"
+                            placeholder="ola@illumine.dev"
                             {...field}
                           />
                         </FormControl>
@@ -178,30 +173,22 @@ export const ContactSection = () => {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Subject</FormLabel>
+                        <FormLabel>Assunto</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select a subject" />
+                              <SelectValue placeholder="Selecione um assunto" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="Web Development">
-                              Web Development
-                            </SelectItem>
-                            <SelectItem value="Mobile Development">
-                              Mobile Development
-                            </SelectItem>
-                            <SelectItem value="Figma Design">
-                              Figma Design
-                            </SelectItem>
-                            <SelectItem value="REST API">REST API</SelectItem>
-                            <SelectItem value="FullStack Project">
-                              FullStack Project
-                            </SelectItem>
+                            {messageSubjects.map((subject, i) => (
+                              <SelectItem value={subject} key={i}>
+                                {subject}
+                              </SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -216,11 +203,11 @@ export const ContactSection = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>Como posso te ajudar?</FormLabel>
                         <FormControl>
                           <Textarea
                             rows={5}
-                            placeholder="Your message..."
+                            placeholder="Me informa sobre o seu projeto e como posso te ajudar."
                             className="resize-none"
                             {...field}
                           />
@@ -232,7 +219,10 @@ export const ContactSection = () => {
                   />
                 </div>
 
-                <Button className="mt-4">Send message</Button>
+                <Button className="mt-4">
+                  Enviar mensagem
+                  <SendIcon className="ml-2" />
+                  </Button>
               </form>
             </Form>
           </CardContent>

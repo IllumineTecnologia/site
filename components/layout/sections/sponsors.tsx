@@ -3,7 +3,7 @@
 import { Icon } from "@/components/ui/icon";
 import { Marquee } from "@devnomic/marquee";
 import "@devnomic/marquee/dist/index.css";
-import { icons } from "lucide-react";
+import { icons, Instagram } from "lucide-react";
 interface sponsorsProps {
   icon: string;
   name: string;
@@ -11,32 +11,20 @@ interface sponsorsProps {
 
 const sponsors: sponsorsProps[] = [
   {
-    icon: "Crown",
-    name: "Acmebrand",
+    icon: "Cloud",
+    name: "Amazon Web Services",
   },
   {
-    icon: "Vegan",
-    name: "Acmelogo",
+    icon: "ShieldCheck",
+    name: "Cloudflare",
   },
   {
-    icon: "Ghost",
-    name: "Acmesponsor",
+    icon: "Figma",
+    name: "Figma",
   },
   {
-    icon: "Puzzle",
-    name: "Acmeipsum",
-  },
-  {
-    icon: "Squirrel",
-    name: "Acme",
-  },
-  {
-    icon: "Cookie",
-    name: "Accmee",
-  },
-  {
-    icon: "Drama",
-    name: "Acmetech",
+    icon: "Github",
+    name: "Github",
   },
 ];
 
@@ -44,7 +32,7 @@ export const SponsorsSection = () => {
   return (
     <section id="sponsors" className="max-w-[75%] mx-auto pb-24 sm:pb-32">
       <h2 className="text-lg md:text-xl text-center mb-6">
-        Our Platinum Sponsors
+        Tecnologias e Parceiros
       </h2>
 
       <div className="mx-auto">

@@ -10,28 +10,28 @@ interface BenefitsProps {
 
 const benefitList: BenefitsProps[] = [
   {
-    icon: "Blocks",
-    title: "Build Brand Trust",
+    icon: "Lightbulb", // Usando um ícone que remete a ideia de iluminação e inovação
+    title: "Tecnologia Inovadora",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Utilizamos as tecnologias mais recentes para criar soluções que atendem às necessidades atuais e futuras do seu negócio.",
   },
   {
-    icon: "LineChart",
-    title: "More Leads",
+    icon: "Rocket", // Ícone que simboliza crescimento e sucesso
+    title: "Impulsione Seu Negócio",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.",
+      "Nossas soluções são projetadas para acelerar o crescimento e maximizar o impacto digital da sua empresa.",
   },
   {
-    icon: "Wallet",
-    title: "Higher Conversions",
+    icon: "Shield", // Ícone representando segurança
+    title: "Segurança e Confiabilidade",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam",
+      "Garantimos que suas informações e operações estejam seguras com nossas soluções de alta confiabilidade.",
   },
   {
-    icon: "Sparkle",
-    title: "Test Marketing Ideas",
+    icon: "Handshake", // Ícone representando parceria e suporte
+    title: "Suporte Dedicado",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Nosso time está sempre à disposição para oferecer suporte e garantir que seus projetos alcancem o sucesso desejado.",
   },
 ];
 
@@ -40,15 +40,14 @@ export const BenefitsSection = () => {
     <section id="benefits" className="container py-24 sm:py-32">
       <div className="grid lg:grid-cols-2 place-items-center lg:gap-24">
         <div>
-          <h2 className="text-lg text-primary mb-2 tracking-wider">Benefits</h2>
+          <h2 className="text-lg text-primary mb-2 tracking-wider">Diferenciais</h2>
 
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Your Shortcut to Success
+            Por que escolher a <span className="text-primary">Illumine</span>?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non
-            ducimus reprehenderit architecto rerum similique facere odit
-            deleniti necessitatibus quo quae.
+            Nossos diferenciais são o que nos tornam únicos e nos permitem oferecer as melhores soluções
+            para o seu negócio.
           </p>
         </div>
 
